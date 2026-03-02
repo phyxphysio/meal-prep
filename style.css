@@ -1,0 +1,248 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f5f3ef;
+  --card: #ffffff;
+  --accent: #e8844a;
+  --chi: #7c6fc2;
+  --liam: #4a9e6e;
+  --out: #999;
+  --text: #1a1a1a;
+  --text-muted: #888;
+  --border: #e8e4df;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
+/* ── Header ── */
+header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 99px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  font-family: inherit;
+}
+.btn-primary:active { opacity: 0.75; }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 99px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+  width: 100%;
+  max-width: 320px;
+}
+.btn-secondary:active { background: rgba(232, 132, 74, 0.08); }
+
+/* ── Settings ── */
+#configSection {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  padding: 0 1.25rem;
+}
+
+#configSection summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  user-select: none;
+}
+#configSection summary::-webkit-details-marker { display: none; }
+
+.chevron { transition: transform 0.2s; }
+#configSection[open] .chevron { transform: rotate(180deg); }
+
+.config-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 1rem;
+}
+
+.config-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+.config-row label { font-size: 0.9rem; font-weight: 500; }
+.config-row input[type="number"] {
+  width: 4rem;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+.config-row input[type="number"]:focus { border-color: var(--accent); }
+
+.config-divider { height: 1px; background: var(--border); margin: 0.85rem 0; }
+
+.config-day-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+}
+.config-day-row label { font-size: 0.88rem; }
+.config-day-row select {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  background: white;
+  outline: none;
+  cursor: pointer;
+}
+.config-day-row select:focus { border-color: var(--accent); }
+
+/* ── Week display ── */
+#weekDisplay {
+  max-width: 640px;
+  margin: 1rem auto 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ── Day cards ── */
+.day-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.day-card.day-out {
+  background: #fafaf8;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.45rem;
+}
+
+.day-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+}
+
+.chef-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.chef-badge.chi  { background: #ede9f9; color: var(--chi); }
+.chef-badge.liam { background: #e4f4ec; color: var(--liam); }
+.chef-badge.out  { background: #f0f0f0; color: var(--out); }
+
+.meal-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+.day-card.day-out .meal-name {
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.regen-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  opacity: 0.8;
+}
+.regen-btn:active { opacity: 0.5; }
+
+/* ── Copy wrapper ── */
+.copy-wrapper {
+  max-width: 640px;
+  margin: 1.25rem auto 0;
+  padding: 0 1.25rem;
+  text-align: center;
+}

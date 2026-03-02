@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal Prep</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <h1>🥗 Meal Prep</h1>
+        <button id="generateBtn" class="btn-primary">Generate Week</button>
+      </div>
+    </header>
+
+    <details id="configSection">
+      <summary>
+        <span>⚙️ Settings</span>
+        <span class="chevron">▾</span>
+      </summary>
+      <div class="config-body">
+        <div class="config-row">
+          <label for="meatTarget">🥩 Meat meals per week</label>
+          <input type="number" id="meatTarget" min="0" max="7" value="2" />
+        </div>
+        <div class="config-divider"></div>
+        <div id="configDays"></div>
+      </div>
+    </details>
+
+    <main id="weekDisplay">
+      <div class="empty-state">
+        <p>Hit <strong>Generate Week</strong> to plan your meals ✨</p>
+      </div>
+    </main>
+
+    <div class="copy-wrapper" id="copyWrapper" style="display: none">
+      <button id="copyBtn" class="btn-secondary">📋 Copy Week</button>
+    </div>
+
+    <script src="meals.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

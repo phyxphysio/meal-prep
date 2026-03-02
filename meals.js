@@ -23,3 +23,4 @@ const MEALS = [
 ];
 
 if (typeof module !== "undefined") module.exports = MEALS;
+

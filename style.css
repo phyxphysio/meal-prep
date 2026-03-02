@@ -246,3 +246,32 @@ h1 {
   padding: 0 1.25rem;
   text-align: center;
 }
+
+.config-row input[type="password"] {
+  width: 8rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.5rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+}
+.config-row input[type="password"]:focus { border-color: var(--accent); }
+
+.config-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+.config-hint a { color: var(--accent); }
+
+.sync-status {
+  max-width: 640px;
+  margin: 0.6rem auto 0;
+  padding: 0 1.25rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  min-height: 1.2em;
+}

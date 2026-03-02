@@ -21,6 +21,11 @@ const DEFAULT_CONFIG = {
   meatTarget: 2,
 };
 
+const GITHUB_OWNER = "phyxphysio";
+const GITHUB_REPO = "meal-prep";
+const WEEK_JSON_API = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/week.json`;
+const WEEK_JSON_RAW = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/main/week.json`;
+
 let config = loadConfig();
 let weekPlan = [];
 
@@ -37,6 +42,73 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+// ── GitHub persistence ────────────────────────────────────────────────────────
+
+async function loadWeekFromGitHub() {
+  try {
+    const res = await fetch(`${WEEK_JSON_RAW}?t=${Date.now()}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data.plan) return;
+    weekPlan = data.plan;
+    renderWeek();
+    const date = new Date(data.generatedAt).toLocaleDateString("en-AU", {
+      weekday: "short", day: "numeric", month: "short",
+    });
+    showSyncStatus(`📅 Showing week generated ${date}`);
+  } catch (_) {}
+}
+
+async function saveWeekToGitHub() {
+  const token = localStorage.getItem("ghToken");
+  if (!token) {
+    showSyncStatus("⚠️ Week not shared — add a GitHub token in Settings so everyone can see this plan");
+    return;
+  }
+
+  showSyncStatus("Saving…");
+
+  const payload = JSON.stringify({ generatedAt: new Date().toISOString(), plan: weekPlan }, null, 2);
+  const content = btoa(unescape(encodeURIComponent(payload)));
+
+  // Fetch current SHA (required to update an existing file)
+  let sha;
+  try {
+    const getRes = await fetch(WEEK_JSON_API, {
+      headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" },
+    });
+    if (getRes.ok) sha = (await getRes.json()).sha;
+  } catch (_) {}
+
+  try {
+    const putRes = await fetch(WEEK_JSON_API, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "update: new week plan",
+        content,
+        ...(sha && { sha }),
+      }),
+    });
+    if (putRes.ok) {
+      showSyncStatus("✅ Week saved — everyone will see this plan");
+    } else {
+      const err = await putRes.json().catch(() => ({}));
+      showSyncStatus(`⚠️ Save failed — ${err.message || "check your token"}`);
+    }
+  } catch (_) {
+    showSyncStatus("⚠️ Save failed — check your connection");
+  }
+}
+
+function showSyncStatus(msg) {
+  document.getElementById("syncStatus").textContent = msg;
 }
 
 // ── Generation ────────────────────────────────────────────────────────────────
@@ -96,6 +168,7 @@ function generateWeek() {
 
   weekPlan = plan;
   renderWeek();
+  saveWeekToGitHub();
 }
 
 // ── Regenerate ────────────────────────────────────────────────────────────────
@@ -228,6 +301,26 @@ function renderConfig() {
     row.appendChild(select);
     daysContainer.appendChild(row);
   });
+
+  // GitHub token (stored in localStorage, only needed by the generator)
+  const configBody = document.querySelector(".config-body");
+  const tokenDiv = document.createElement("div");
+  tokenDiv.innerHTML = `
+    <div class="config-divider"></div>
+    <div class="config-row">
+      <label for="ghToken">🔑 GitHub token</label>
+      <input type="password" id="ghToken" placeholder="ghp_…" autocomplete="off" />
+    </div>
+    <p class="config-hint">Lets you save the week so anyone can see it. Viewers don't need one. <a href="https://github.com/settings/tokens/new?scopes=repo&description=meal-prep" target="_blank" rel="noopener">Create token →</a></p>`;
+  configBody.appendChild(tokenDiv);
+
+  const tokenInput = document.getElementById("ghToken");
+  tokenInput.value = localStorage.getItem("ghToken") || "";
+  tokenInput.addEventListener("change", () => {
+    const val = tokenInput.value.trim();
+    if (val) localStorage.setItem("ghToken", val);
+    else localStorage.removeItem("ghToken");
+  });
 }
 
 function loadConfig() {
@@ -253,6 +346,7 @@ function saveConfig() {
 
 document.addEventListener("DOMContentLoaded", () => {
   renderConfig();
+  loadWeekFromGitHub();
   document.getElementById("generateBtn").addEventListener("click", generateWeek);
   document.getElementById("copyBtn").addEventListener("click", copyWeek);
 });

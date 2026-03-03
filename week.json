@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-03-03T01:59:19.702Z",
+  "generatedAt": "2026-03-03T02:11:59.161Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Mexican Nut Mince",
+        "name": "Pasta Verde",
         "chef": "chi"
       },
       "date": "2026-03-01T13:00:00.000Z"

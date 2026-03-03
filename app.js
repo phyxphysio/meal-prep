@@ -30,7 +30,7 @@ const CONFIG_RAW = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_R
 
 let config   = { ...DEFAULT_CONFIG, cookDays: { ...DEFAULT_CONFIG.cookDays } };
 let weekPlan = [];
-let _sessionToken = ""; // session-only, never persisted
+let _token = ""; // validated token, kept in memory + localStorage
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -66,24 +66,60 @@ function formatDate(date) {
   return date.toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 }
 
-// ── Token (session-only) ──────────────────────────────────────────────────────
+// ── Token / gate ──────────────────────────────────────────────────────────────
 
-function getToken() {
-  return _sessionToken || localStorage.getItem("ghToken") || "";
+function getToken() { return _token; }
+
+async function validateAndSaveToken(raw) {
+  const t = raw.trim();
+  if (!t) return "Please enter a token.";
+  try {
+    const res = await fetch("https://api.github.com/user", {
+      headers: { Authorization: `Bearer ${t}`, Accept: "application/vnd.github+json" },
+    });
+    if (res.status === 401) return "Invalid token — check it and try again.";
+    if (!res.ok) return `GitHub returned ${res.status} — try again.`;
+    const scopes = res.headers.get("x-oauth-scopes") || "";
+    // Fine-grained tokens don't return scopes header but are still valid
+    if (scopes && !scopes.includes("repo") && !scopes.includes("public_repo")) {
+      return "Token needs 'repo' scope. Create a new token with repo access.";
+    }
+    _token = t;
+    localStorage.setItem("ghToken", t);
+    return null; // success
+  } catch (_) {
+    return "Network error — check your connection.";
+  }
 }
 
-function setToken(val) {
-  _sessionToken = val.trim();
-  if (_sessionToken) localStorage.setItem("ghToken", _sessionToken);
-  else localStorage.removeItem("ghToken");
-  updateGenerateBtn();
+function showApp() {
+  document.getElementById("tokenGate").style.display = "none";
+  document.getElementById("appShell").style.display  = "block";
 }
 
-function updateGenerateBtn() {
-  const btn = document.getElementById("generateBtn");
-  const hasToken = !!getToken();
-  btn.disabled = !hasToken;
-  btn.title = hasToken ? "" : "Add a GitHub token in Settings to enable generating";
+function initGate() {
+  const input = document.getElementById("gateTokenInput");
+  const btn   = document.getElementById("gateSubmitBtn");
+  const errEl = document.getElementById("gateError");
+
+  const attempt = async () => {
+    errEl.style.display = "none";
+    btn.disabled = true;
+    btn.textContent = "Checking…";
+    const err = await validateAndSaveToken(input.value);
+    if (err) {
+      errEl.textContent = err;
+      errEl.style.display = "block";
+      btn.disabled = false;
+      btn.textContent = "Unlock";
+    } else {
+      showApp();
+      initApp();
+    }
+  };
+
+  btn.addEventListener("click", attempt);
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") attempt(); });
 }
 
 // ── GitHub helpers ────────────────────────────────────────────────────────────
@@ -189,20 +225,8 @@ function renderConfig() {
   const extra = document.createElement("div");
   extra.innerHTML = `
     <div class="config-divider"></div>
-    <div class="config-row">
-      <label for="ghToken">🔑 GitHub token</label>
-      <input type="password" id="ghToken" placeholder="ghp_…" autocomplete="off" />
-    </div>
-    <p class="config-hint">Required to generate &amp; save the week. Viewers don't need one.
-      <a href="https://github.com/settings/tokens/new?scopes=repo&description=meal-prep" target="_blank" rel="noopener">Create token →</a></p>
-    <div class="config-divider"></div>
     <button id="saveConfigBtn" class="btn-save-config">💾 Save Config</button>`;
   configBody.appendChild(extra);
-
-  const tokenInput = document.getElementById("ghToken");
-  tokenInput.value = localStorage.getItem("ghToken") || "";
-  tokenInput.addEventListener("input", () => setToken(tokenInput.value));
-
   document.getElementById("saveConfigBtn").addEventListener("click", saveConfigToGitHub);
 }
 
@@ -396,9 +420,8 @@ function renderWeek() {
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function initApp() {
   renderConfig();
-  updateGenerateBtn();
 
   const remoteConfig = await loadConfigFromGitHub();
   if (remoteConfig) {
@@ -413,4 +436,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   document.getElementById("generateBtn").addEventListener("click", generateWeek);
   document.getElementById("copyBtn").addEventListener("click", copyWeek);
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  initGate();
+
+  const saved = localStorage.getItem("ghToken");
+  if (saved) {
+    // Silently validate saved token
+    const err = await validateAndSaveToken(saved);
+    if (!err) {
+      showApp();
+      initApp();
+      return;
+    }
+    // Token invalid — clear it and show gate
+    localStorage.removeItem("ghToken");
+  }
+  // No token or invalid — gate is already visible by default
 });

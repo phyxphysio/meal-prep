@@ -7,38 +7,59 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <div class="header-inner">
-        <h1>🥗 Meal Prep</h1>
-        <button id="generateBtn" class="btn-primary" title="Add a GitHub token in Settings to enable generating">Generate Week</button>
-      </div>
-    </header>
 
-    <p id="syncStatus" class="sync-status" style="display:none"></p>
-
-    <details id="configSection">
-      <summary>
-        <span>⚙️ Settings</span>
-        <span class="chevron">▾</span>
-      </summary>
-      <div class="config-body">
-        <div class="config-row">
-          <label for="meatTarget">🥩 Meat meals per week</label>
-          <input type="number" id="meatTarget" min="0" max="7" value="2" />
+    <!-- ── Token gate (shown until validated) ── -->
+    <div id="tokenGate">
+      <div class="gate-card">
+        <div class="gate-logo">🥗</div>
+        <h1 class="gate-title">Meal Prep</h1>
+        <p class="gate-desc">Enter your GitHub token to continue.<br>Tokens are stored locally and never shared.</p>
+        <div class="gate-field">
+          <input type="password" id="gateTokenInput" placeholder="ghp_…" autocomplete="off" />
+          <button id="gateSubmitBtn" class="btn-primary">Unlock</button>
         </div>
-        <div class="config-divider"></div>
-        <div id="configDays"></div>
+        <p id="gateError" class="gate-error" style="display:none"></p>
+        <p class="gate-hint">
+          Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=meal-prep" target="_blank" rel="noopener">Create one on GitHub →</a>
+        </p>
       </div>
-    </details>
+    </div>
 
-    <main id="weekDisplay">
-      <div class="empty-state">
-        <p>No week generated yet.<br>Add a GitHub token in Settings, then hit <strong>Generate Week</strong> ✨</p>
+    <!-- ── Main app (hidden until token validated) ── -->
+    <div id="appShell" style="display:none">
+      <header>
+        <div class="header-inner">
+          <h1>🥗 Meal Prep</h1>
+          <button id="generateBtn" class="btn-primary">Generate Week</button>
+        </div>
+      </header>
+
+      <p id="syncStatus" class="sync-status" style="display:none"></p>
+
+      <details id="configSection">
+        <summary>
+          <span>⚙️ Settings</span>
+          <span class="chevron">▾</span>
+        </summary>
+        <div class="config-body">
+          <div class="config-row">
+            <label for="meatTarget">🥩 Meat meals per week</label>
+            <input type="number" id="meatTarget" min="0" max="7" value="2" />
+          </div>
+          <div class="config-divider"></div>
+          <div id="configDays"></div>
+        </div>
+      </details>
+
+      <main id="weekDisplay">
+        <div class="empty-state">
+          <p>Hit <strong>Generate Week</strong> to plan your meals ✨</p>
+        </div>
+      </main>
+
+      <div class="copy-wrapper" id="copyWrapper" style="display: none">
+        <button id="copyBtn" class="btn-secondary">📋 Copy Week</button>
       </div>
-    </main>
-
-    <div class="copy-wrapper" id="copyWrapper" style="display: none">
-      <button id="copyBtn" class="btn-secondary">📋 Copy Week</button>
     </div>
 
     <script src="meals.js"></script>

@@ -333,3 +333,78 @@ h1 {
   transition: border-color 0.15s, background 0.15s;
 }
 .btn-save-config:hover { border-color: var(--accent); background: #fff8f4; }
+
+/* ── Token gate ── */
+#tokenGate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+.gate-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.gate-logo {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gate-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.gate-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.gate-field {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.gate-field input {
+  flex: 1;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  min-width: 0;
+}
+.gate-field input:focus { border-color: var(--accent); }
+
+.gate-error {
+  color: #b85c1a;
+  background: #fff4ec;
+  border: 1px solid #f5c8a8;
+  border-radius: var(--radius-sm);
+  font-size: 0.83rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+.gate-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+}
+.gate-hint a { color: var(--accent); }

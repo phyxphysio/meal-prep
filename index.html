@@ -10,9 +10,11 @@
     <header>
       <div class="header-inner">
         <h1>🥗 Meal Prep</h1>
-        <button id="generateBtn" class="btn-primary">Generate Week</button>
+        <button id="generateBtn" class="btn-primary" title="Add a GitHub token in Settings to enable generating">Generate Week</button>
       </div>
     </header>
+
+    <p id="syncStatus" class="sync-status" style="display:none"></p>
 
     <details id="configSection">
       <summary>
@@ -31,15 +33,13 @@
 
     <main id="weekDisplay">
       <div class="empty-state">
-        <p>Hit <strong>Generate Week</strong> to plan your meals ✨</p>
+        <p>No week generated yet.<br>Add a GitHub token in Settings, then hit <strong>Generate Week</strong> ✨</p>
       </div>
     </main>
 
     <div class="copy-wrapper" id="copyWrapper" style="display: none">
       <button id="copyBtn" class="btn-secondary">📋 Copy Week</button>
     </div>
-
-    <p id="syncStatus" class="sync-status"></p>
 
     <script src="meals.js"></script>
     <script src="app.js"></script>

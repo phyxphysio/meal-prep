@@ -7,10 +7,11 @@ const MEALS = [
   { name: "Lovely Quiche Lorraine", chef: "liam" },
   { name: "Beef Burger Bonanza", chef: "liam" },
   { name: "Thai Green Curry Galore", chef: "liam" },
+  { name: "Tuscan chicken with mash", chef: "liam" },
   { name: "Asian Noodle Salad", chef: "chi" },
   { name: "Buddha Bowls", chef: "chi" },
   { name: "Falafel Wraps", chef: "chi" },
-  { name: "Poke Bowls", chef: "chi" },
+  { name: "Salmon poke bowls", chef: "chi" },
   { name: "Mexican Nut Mince", chef: "chi" },
   { name: "Paneer Curry", chef: "chi" },
   { name: "Peanut Stew", chef: "chi" },
@@ -20,6 +21,11 @@ const MEALS = [
   { name: "Pasta Verde", chef: "chi" },
   { name: "Soup", chef: "chi" },
   { name: "Kung Pao Tofu", chef: "chi" },
+  { name: "Tuscan butter beans", chef: "chi" },
+  { name: "Mexican bean salad with halloumi croutons", chef: "chi" },
+  { name: "Tray bake", chef: "chi" },
+  { name: "Baked cous cous", chef: "chi" },
+  { name: "Chicken tacos", chef: "chi" },
 ];
 
 if (typeof module !== "undefined") module.exports = MEALS;

@@ -1,0 +1,12 @@
+{
+  "cookDays": {
+    "mon": "chi",
+    "tue": "liam",
+    "wed": "chi",
+    "thu": "liam",
+    "fri": "chi",
+    "sat": "out",
+    "sun": "chi"
+  },
+  "meatTarget": 2
+}

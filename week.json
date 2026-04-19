@@ -1,72 +1,72 @@
 {
-  "generatedAt": "2026-03-03T02:11:59.161Z",
+  "generatedAt": "2026-04-19T00:44:39.651Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Pasta Verde",
+        "name": "Buddha Bowls",
         "chef": "chi"
       },
-      "date": "2026-03-01T13:00:00.000Z"
+      "date": "2026-04-12T14:00:00.000Z"
     },
     {
       "key": "tue",
       "label": "Tuesday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-03-02T13:00:00.000Z"
+      "date": "2026-04-13T14:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Fritters",
+        "name": "Moroccan Tagine",
         "chef": "chi"
       },
-      "date": "2026-03-03T13:00:00.000Z"
+      "date": "2026-04-14T14:00:00.000Z"
     },
     {
       "key": "thu",
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Chicken Salad Surprise",
+        "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
-      "date": "2026-03-04T13:00:00.000Z"
+      "date": "2026-04-15T14:00:00.000Z"
     },
     {
       "key": "fri",
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Soup",
+        "name": "Pasta Verde",
         "chef": "chi"
       },
-      "date": "2026-03-05T13:00:00.000Z"
+      "date": "2026-04-16T14:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-03-06T13:00:00.000Z"
+      "date": "2026-04-17T14:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Falafel Wraps",
+        "name": "Paneer Curry",
         "chef": "chi"
       },
-      "date": "2026-03-07T13:00:00.000Z"
+      "date": "2026-04-18T14:00:00.000Z"
     }
   ]
 }

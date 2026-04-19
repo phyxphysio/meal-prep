@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T00:44:39.651Z",
+  "generatedAt": "2026-04-19T00:47:15.302Z",
   "plan": [
     {
       "key": "mon",
@@ -63,7 +63,7 @@
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Paneer Curry",
+        "name": "Kung Pao Tofu",
         "chef": "chi"
       },
       "date": "2026-04-18T14:00:00.000Z"

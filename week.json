@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T00:47:15.302Z",
+  "generatedAt": "2026-04-19T00:47:18.269Z",
   "plan": [
     {
       "key": "mon",
@@ -46,7 +46,7 @@
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Pasta Verde",
+        "name": "Soup",
         "chef": "chi"
       },
       "date": "2026-04-16T14:00:00.000Z"

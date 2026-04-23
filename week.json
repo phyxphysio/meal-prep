@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T02:36:33.099Z",
+  "generatedAt": "2026-04-23T02:36:49.108Z",
   "plan": [
     {
       "key": "mon",
@@ -36,7 +36,7 @@
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Malaysian Satay Supreme",
+        "name": "Thai Green Curry Galore",
         "chef": "liam"
       },
       "date": "2026-04-15T14:00:00.000Z"

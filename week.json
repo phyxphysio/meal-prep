@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T00:47:18.269Z",
+  "generatedAt": "2026-04-23T02:36:21.900Z",
   "plan": [
     {
       "key": "mon",
@@ -36,7 +36,7 @@
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Thai Green Curry Galore",
         "chef": "liam"
       },
       "date": "2026-04-15T14:00:00.000Z"

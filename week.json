@@ -1,72 +1,72 @@
 {
-  "generatedAt": "2026-05-17T07:16:11.437Z",
+  "generatedAt": "2026-05-17T07:17:24.064Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Vege Burgers",
+        "name": "Asian Noodle Salad",
         "chef": "chi"
       },
-      "date": "2026-05-10T14:00:00.000Z"
+      "date": "2026-04-26T14:00:00.000Z"
     },
     {
       "key": "tue",
       "label": "Tuesday",
       "cook": "liam",
       "meal": {
-        "name": "Chicken Salad Surprise",
+        "name": "Lovely Quiche Lorraine",
         "chef": "liam"
       },
-      "date": "2026-05-11T14:00:00.000Z"
+      "date": "2026-04-27T14:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Pasta Verde",
+        "name": "Falafel Wraps",
         "chef": "chi"
       },
-      "date": "2026-05-12T14:00:00.000Z"
+      "date": "2026-04-28T14:00:00.000Z"
     },
     {
       "key": "thu",
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-05-13T14:00:00.000Z"
+      "date": "2026-04-29T14:00:00.000Z"
     },
     {
       "key": "fri",
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Falafel Wraps",
+        "name": "Pasta Verde",
         "chef": "chi"
       },
-      "date": "2026-05-14T14:00:00.000Z"
+      "date": "2026-04-30T14:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-05-15T14:00:00.000Z"
+      "date": "2026-05-01T14:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Mexican Nut Mince",
+        "name": "Paneer Curry",
         "chef": "chi"
       },
-      "date": "2026-05-16T14:00:00.000Z"
+      "date": "2026-05-02T14:00:00.000Z"
     }
   ]
 }

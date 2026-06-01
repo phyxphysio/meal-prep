@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-05-25T04:22:16.828Z",
+  "generatedAt": "2026-06-01T06:13:44.754Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Kung Pao Tofu",
+        "name": "Mexican Nut Mince",
         "chef": "chi"
       },
-      "date": "2026-05-24T14:00:00.000Z"
+      "date": "2026-05-31T14:00:00.000Z"
     },
     {
       "key": "tue",
@@ -19,17 +19,17 @@
         "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
-      "date": "2026-05-25T14:00:00.000Z"
+      "date": "2026-06-01T14:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Soup",
+        "name": "Asian Noodle Salad",
         "chef": "chi"
       },
-      "date": "2026-05-26T14:00:00.000Z"
+      "date": "2026-06-02T14:00:00.000Z"
     },
     {
       "key": "thu",
@@ -39,7 +39,7 @@
         "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-05-27T14:00:00.000Z"
+      "date": "2026-06-03T14:00:00.000Z"
     },
     {
       "key": "fri",
@@ -49,24 +49,24 @@
         "name": "Buddha Bowls",
         "chef": "chi"
       },
-      "date": "2026-05-28T14:00:00.000Z"
+      "date": "2026-06-04T14:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-05-29T14:00:00.000Z"
+      "date": "2026-06-05T14:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Paneer Curry",
+        "name": "Peanut Stew",
         "chef": "chi"
       },
-      "date": "2026-05-30T14:00:00.000Z"
+      "date": "2026-06-06T14:00:00.000Z"
     }
   ]
 }

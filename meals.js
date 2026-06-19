@@ -8,7 +8,7 @@ const MEALS = [
   { name: "Beef Burger Bonanza", chef: "liam" },
   { name: "Thai Green Curry Galore", chef: "liam" },
   { name: "Tuscan chicken with mash", chef: "liam" },
-  { name: "Asian Noodle Salad", chef: "chi" },
+  { name: "Chicken Noodle Salad", chef: "chi" },
   { name: "Buddha Bowls", chef: "chi" },
   { name: "Falafel Wraps", chef: "chi" },
   { name: "Salmon poke bowls", chef: "chi" },
@@ -26,6 +26,7 @@ const MEALS = [
   { name: "Tray bake", chef: "chi" },
   { name: "Baked cous cous", chef: "chi" },
   { name: "Chicken tacos", chef: "chi" },
+  { name: "Crispy rice salad", chef: "chi" },
 ];
 
 if (typeof module !== "undefined") module.exports = MEALS;

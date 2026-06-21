@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-15T04:33:03.240Z",
+  "generatedAt": "2026-06-21T05:20:52.906Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Mexican Nut Mince",
+        "name": "Moroccan Tagine",
         "chef": "chi"
       },
       "date": "2026-06-14T14:00:00.000Z"
@@ -16,7 +16,7 @@
       "label": "Tuesday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
       "date": "2026-06-15T14:00:00.000Z"
@@ -26,7 +26,7 @@
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Vege Burgers",
+        "name": "Poke Bowls",
         "chef": "chi"
       },
       "date": "2026-06-16T14:00:00.000Z"
@@ -36,7 +36,7 @@
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Chicken Salad Surprise",
+        "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
       "date": "2026-06-17T14:00:00.000Z"
@@ -46,7 +46,7 @@
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Fritters",
+        "name": "Buddha Bowls",
         "chef": "chi"
       },
       "date": "2026-06-18T14:00:00.000Z"
@@ -63,7 +63,7 @@
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Soup",
+        "name": "Fritters",
         "chef": "chi"
       },
       "date": "2026-06-20T14:00:00.000Z"

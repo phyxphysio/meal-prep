@@ -1,72 +1,72 @@
 {
-  "generatedAt": "2026-09-26T23:15:24.469Z",
+  "generatedAt": "2026-10-10T23:37:44.885Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Falafel Wraps",
+        "name": "Fritters",
         "chef": "chi"
       },
-      "date": "2026-09-20T14:00:00.000Z"
+      "date": "2026-10-04T13:00:00.000Z"
     },
     {
       "key": "tue",
       "label": "Tuesday",
       "cook": "liam",
       "meal": {
-        "name": "Chicken Salad Surprise",
+        "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
-      "date": "2026-09-21T14:00:00.000Z"
+      "date": "2026-10-05T13:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Peanut Stew",
+        "name": "Pasta Verde",
         "chef": "chi"
       },
-      "date": "2026-09-22T14:00:00.000Z"
+      "date": "2026-10-06T13:00:00.000Z"
     },
     {
       "key": "thu",
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-09-23T14:00:00.000Z"
+      "date": "2026-10-07T13:00:00.000Z"
     },
     {
       "key": "fri",
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Vege Burgers",
+        "name": "Moroccan Tagine",
         "chef": "chi"
       },
-      "date": "2026-09-24T14:00:00.000Z"
+      "date": "2026-10-08T13:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-09-25T14:00:00.000Z"
+      "date": "2026-10-09T13:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Asian Noodle Salad",
+        "name": "Kung Pao Tofu",
         "chef": "chi"
       },
-      "date": "2026-09-26T14:00:00.000Z"
+      "date": "2026-10-10T13:00:00.000Z"
     }
   ]
 }

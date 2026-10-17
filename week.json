@@ -1,72 +1,72 @@
 {
-  "generatedAt": "2026-10-10T23:37:44.885Z",
+  "generatedAt": "2026-10-17T21:15:14.054Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Fritters",
+        "name": "Poke Bowls",
         "chef": "chi"
       },
-      "date": "2026-10-04T13:00:00.000Z"
+      "date": "2026-10-11T13:00:00.000Z"
     },
     {
       "key": "tue",
       "label": "Tuesday",
       "cook": "liam",
       "meal": {
-        "name": "Beef Burger Bonanza",
+        "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-10-05T13:00:00.000Z"
+      "date": "2026-10-12T13:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Pasta Verde",
+        "name": "Mexican Nut Mince",
         "chef": "chi"
       },
-      "date": "2026-10-06T13:00:00.000Z"
+      "date": "2026-10-13T13:00:00.000Z"
     },
     {
       "key": "thu",
       "label": "Thursday",
       "cook": "liam",
       "meal": {
-        "name": "Chicken Salad Surprise",
+        "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
-      "date": "2026-10-07T13:00:00.000Z"
+      "date": "2026-10-14T13:00:00.000Z"
     },
     {
       "key": "fri",
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Moroccan Tagine",
+        "name": "Asian Noodle Salad",
         "chef": "chi"
       },
-      "date": "2026-10-08T13:00:00.000Z"
+      "date": "2026-10-15T13:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-10-09T13:00:00.000Z"
+      "date": "2026-10-16T13:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Kung Pao Tofu",
+        "name": "Fritters",
         "chef": "chi"
       },
-      "date": "2026-10-10T13:00:00.000Z"
+      "date": "2026-10-17T13:00:00.000Z"
     }
   ]
 }

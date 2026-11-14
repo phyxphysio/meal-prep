@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-17T21:15:14.054Z",
+  "generatedAt": "2026-11-14T21:02:31.697Z",
   "plan": [
     {
       "key": "mon",
       "label": "Monday",
       "cook": "chi",
       "meal": {
-        "name": "Poke Bowls",
+        "name": "Falafel Wraps",
         "chef": "chi"
       },
-      "date": "2026-10-11T13:00:00.000Z"
+      "date": "2026-11-08T13:00:00.000Z"
     },
     {
       "key": "tue",
@@ -19,17 +19,17 @@
         "name": "Chicken Salad Surprise",
         "chef": "liam"
       },
-      "date": "2026-10-12T13:00:00.000Z"
+      "date": "2026-11-09T13:00:00.000Z"
     },
     {
       "key": "wed",
       "label": "Wednesday",
       "cook": "chi",
       "meal": {
-        "name": "Mexican Nut Mince",
+        "name": "Vege Burgers",
         "chef": "chi"
       },
-      "date": "2026-10-13T13:00:00.000Z"
+      "date": "2026-11-10T13:00:00.000Z"
     },
     {
       "key": "thu",
@@ -39,34 +39,34 @@
         "name": "Beef Burger Bonanza",
         "chef": "liam"
       },
-      "date": "2026-10-14T13:00:00.000Z"
+      "date": "2026-11-11T13:00:00.000Z"
     },
     {
       "key": "fri",
       "label": "Friday",
       "cook": "chi",
       "meal": {
-        "name": "Asian Noodle Salad",
+        "name": "Mexican Nut Mince",
         "chef": "chi"
       },
-      "date": "2026-10-15T13:00:00.000Z"
+      "date": "2026-11-12T13:00:00.000Z"
     },
     {
       "key": "sat",
       "label": "Saturday",
       "cook": "out",
       "meal": null,
-      "date": "2026-10-16T13:00:00.000Z"
+      "date": "2026-11-13T13:00:00.000Z"
     },
     {
       "key": "sun",
       "label": "Sunday",
       "cook": "chi",
       "meal": {
-        "name": "Fritters",
+        "name": "Moroccan Tagine",
         "chef": "chi"
       },
-      "date": "2026-10-17T13:00:00.000Z"
+      "date": "2026-11-14T13:00:00.000Z"
     }
   ]
 }

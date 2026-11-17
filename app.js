@@ -18,7 +18,6 @@ const DEFAULT_CONFIG = {
     sat: "out",
     sun: "chi",
   },
-  meatTarget: 2,
 };
 
 const GITHUB_OWNER = "phyxphysio";
@@ -36,15 +35,6 @@ let _token = ""; // validated token, kept in memory + localStorage
 
 function isMeat(meal) {
   return /chicken|beef|salmon/i.test(meal.name);
-}
-
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 function currentWeekDates() {
@@ -176,20 +166,12 @@ async function saveConfigToGitHub() {
 }
 
 function applyConfigToUI() {
-  const meatInput = document.getElementById("meatTarget");
-  if (meatInput) meatInput.value = config.meatTarget;
   document.querySelectorAll("[data-day]").forEach((select) => {
     select.value = config.cookDays[select.dataset.day] || "out";
   });
 }
 
 function renderConfig() {
-  const meatInput = document.getElementById("meatTarget");
-  meatInput.value = config.meatTarget;
-  meatInput.addEventListener("change", () => {
-    config.meatTarget = Math.max(0, parseInt(meatInput.value, 10) || 0);
-  });
-
   const daysContainer = document.getElementById("configDays");
   DAYS.forEach((d) => {
     const row = document.createElement("div");
@@ -279,20 +261,11 @@ function generateWeek() {
     date: dates[d.key],
   }));
 
-  const meatCapableDays = dayInfo.filter((d) => d.eligible.some(isMeat));
-  const target = Math.min(config.meatTarget, meatCapableDays.length);
-  const meatDayKeys = new Set(shuffle(meatCapableDays).slice(0, target).map((d) => d.key));
-
   const usedMeals = new Set();
   const plan = [];
 
   for (const d of dayInfo) {
-    const wantMeat = meatDayKeys.has(d.key);
-    let pool = d.eligible.filter(
-      (m) => !usedMeals.has(m.name) && (wantMeat ? isMeat(m) : !isMeat(m))
-    );
-    if (pool.length === 0) pool = d.eligible.filter((m) => !usedMeals.has(m.name));
-
+    const pool = d.eligible.filter((m) => !usedMeals.has(m.name));
     const meal = pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
     if (meal) usedMeals.add(meal.name);
     plan.push({ key: d.key, label: d.label, cook: d.cook, meal, date: d.date.toISOString() });
@@ -396,7 +369,7 @@ function renderWeek() {
         </div>
         <div class="meal-name">🍽️ Enjoy your night off</div>`;
     } else {
-      const meatTag = entry.meal && isMeat(entry.meal) ? " <span title='Meat meal'>��</span>" : "";
+      const meatTag = entry.meal && isMeat(entry.meal) ? " <span title='Meat meal'>🥩</span>" : "";
       const chefName = entry.cook === "chi" ? "Chi" : "Liam";
       card.innerHTML = `
         <div class="day-header">
@@ -427,7 +400,6 @@ async function initApp() {
   if (remoteConfig) {
     config = {
       cookDays: { ...DEFAULT_CONFIG.cookDays, ...remoteConfig.cookDays },
-      meatTarget: remoteConfig.meatTarget ?? DEFAULT_CONFIG.meatTarget,
     };
     applyConfigToUI();
   }

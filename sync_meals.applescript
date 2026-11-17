@@ -25,5 +25,7 @@ do shell script "python3 " & quoted form of parseScript & " " & quoted form of t
 -- 4. Clean up temp file
 do shell script "rm -f " & quoted form of tmpFile
 
--- 5. Commit and push if meals.js changed
-do shell script "cd " & quoted form of repoPath & " && git add meals.js && if ! git diff --cached --quiet; then git commit -m 'sync: update meals from Apple Notes' && git push; fi"
+-- 5. Sync with GitHub, then commit and push if meals.js changed
+--    Pull first: the web app commits week.json/config.json to main, so the local
+--    checkout falls behind and a plain push gets rejected (non-fast-forward).
+do shell script "cd " & quoted form of repoPath & " && git pull --rebase --autostash -q origin main && git add meals.js && if ! git diff --cached --quiet; then git commit -m 'sync: update meals from Apple Notes' && git push origin main; fi"

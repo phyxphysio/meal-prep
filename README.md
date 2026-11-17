@@ -1,6 +1,6 @@
 # Meal Prep App
 
-A mobile-first meal planning app hosted on GitHub Pages. Generates a week of meals, respects who cooks on which day, and targets a configurable number of meat meals per week.
+A mobile-first meal planning app hosted on GitHub Pages. Generates a week of meals, and respects who cooks on which day.
 
 ## Live App
 
@@ -67,7 +67,7 @@ Kung Pao Tofu - chi
 **Rules:**
 - Chef must be `liam`, `chi`, or `both` (case-insensitive)
 - Lines starting with `--` or `//` are ignored (comments)
-- Meals with `chicken`, `beef`, or `salmon` in their name count as meat meals
+- Meals with `chicken`, `beef`, or `salmon` in their name get a 🥩 badge
 
 ### 3. Daily sync (launchd)
 
@@ -100,8 +100,8 @@ rm ~/Library/LaunchAgents/com.mealprep.sync.plist
 
 | Feature | Description |
 |---------|-------------|
-| **Generate Week** | Assigns meals Mon–Sun based on cook-day config and meat target |
-| **Settings** | Configure who cooks each day (Chi / Liam / Eat out) + meat meal target |
+| **Generate Week** | Assigns meals Mon–Sun based on cook-day config, picked at random with no repeats |
+| **Settings** | Configure who cooks each day (Chi / Liam / Eat out) |
 | **↻ Regenerate** | Swap a single day's meal for another eligible unused meal |
 | **Copy Week** | Copies the full week plan to clipboard as formatted text |
 

@@ -22,7 +22,7 @@ Meal Name - liam
 Meal Name - chi
 Meal Name - both
 ```
-Meals with "chicken", "beef", or "salmon" in the name are auto-tagged as meat meals.
+Meals with "chicken", "beef", or "salmon" in the name get a 🥩 badge (display only).
 
 ## Seed Data (from phyxphysio/meal_picker)
 
@@ -33,7 +33,6 @@ Meals with "chicken", "beef", or "salmon" in the name are auto-tagged as meat me
 ## App Features
 - **Generate week** button — assigns one meal per cooking day, no repeats
 - **Cook-day config** — who cooks each day (default: Liam: Tue/Thu, Chi: Mon/Wed/Fri/Sun, Saturday: eat out)
-- **Meat meal target** — configurable N, counts meals with chicken/beef/salmon in name; generation aims for exactly N
 - **Regenerate per day** — swap that day's meal for another eligible one (respects no-repeat rule)
 - **Copy week to clipboard** — formatted text of the full week
 
@@ -63,11 +62,7 @@ Meals with "chicken", "beef", or "salmon" in the name are auto-tagged as meat me
 ## Generation Algorithm
 1. Split days into Liam-days and Chi-days (Saturday skipped)
 2. Determine which meals are eligible per day based on cook assignment (`chi`, `liam`, or `both`)
-3. Randomly assign meals satisfying the meat target:
-   - If target = N meat meals: ensure exactly N days get a meat meal
-   - Meat meals only come from Liam's days (all Chi meals are veggie), so target is capped at Liam's day count
-4. Fill remaining days with non-meat meals, no repeats
-5. If exact target is impossible (e.g. not enough meat meals), fall back to best-effort
+3. For each cooking day, pick a random eligible meal that hasn't been used yet this week (no repeats)
 
 ## Design
 - Mobile-first, minimal
